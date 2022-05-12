@@ -7,7 +7,27 @@ struct node
     node *next;
 };
 
-void insrtBeg(){}
+node *head=NULL, *ptr, *temp;
+int val, pos, count; 
+
+void insrtBeg(){
+
+    ptr = new node;
+
+    cout<<"\n->Enter the value to insert ";
+    cin>>val;
+
+    ptr->data=val;
+
+    if(head==NULL){
+        ptr->next=NULL;
+    }else{
+        ptr->next=head;
+    }
+
+    head=ptr;
+
+}
 
 void insrtEnd(){}
 
