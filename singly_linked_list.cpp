@@ -14,7 +14,7 @@ void insrtBeg(){
 
     ptr = new node;
 
-    cout<<"\n->Enter the value to insert ";
+    cout<<"\n->Enter the value to insert: ";
     cin>>val;
 
     ptr->data=val;
@@ -29,7 +29,33 @@ void insrtBeg(){
 
 }
 
-void insrtEnd(){}
+void insrtEnd(){
+
+    ptr=new node;
+
+    cout<<"\nEnter the value to be inserted: ";
+    cin>>val;
+
+    ptr->data=val;
+    ptr->next=NULL;
+
+    temp=head;
+
+    if(head==NULL){
+        head=ptr;
+    }else if(head->next==NULL){
+        head->next=ptr;
+    }else{
+        do
+        {
+            temp=temp->next;
+        } while (temp->next!=NULL);
+
+        temp->next=ptr;
+        
+    }
+
+}
 
 void insrtReq(){}
 
