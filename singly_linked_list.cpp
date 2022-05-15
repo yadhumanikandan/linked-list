@@ -8,7 +8,7 @@ struct node
 };
 
 node *head=NULL, *ptr, *temp;
-int val, pos, count; 
+int val, pos, count = 0;
 
 void insrtBeg(){
 
@@ -28,6 +28,9 @@ void insrtBeg(){
     head=ptr;
     cout<<"\nInserted "<<val<<" at the BEGINNING.";
 
+    count++;
+
+    cout<<"\n\nTOTEL ELEMENTS: "<<count<<endl;
 
 }
 
@@ -35,7 +38,7 @@ void insrtEnd(){
 
     ptr=new node;
 
-    cout<<"\nEnter the value to be inserted: ";
+    cout<<"\n\nEnter the value to be inserted: ";
     cin>>val;
 
     ptr->data=val;
@@ -56,11 +59,42 @@ void insrtEnd(){
         temp->next=ptr;
         
     }
-    cout<<"\nInserted "<<val<<" at the END.";
+    cout<<"\n\nInserted "<<val<<" at the END.";
+
+    count++;
+
+    cout<<"\n\nTOTEL ELEMENTS: "<<count<<endl;
 
 }
 
-void insrtReq(){}
+void insrtReq(){
+    ptr = new node;
+
+    cout<<"\n\nEnter the position to insert: ";
+    cin>>pos;
+
+    cout<<"\n\nEnter the value to be inserted: ";
+    cin>>val;
+    ptr->data = val;
+
+    temp = head;
+
+    for(int i=1;i<pos-1;i++){
+        temp = temp->next;
+    }
+    
+    if(pos>count+1||pos<0){
+        cout<<"\n\n**Enter a valied position**";
+    }else{
+        ptr->next = temp->next;
+        temp->next = ptr;
+
+        cout<<"\n\nInserted "<<val<<" at location: "<<pos;
+        count++;
+        cout<<"\n\nTOTEL ELEMENTS: "<<count<<endl;
+    }
+    
+}
 
 void delBeg(){}
 
@@ -88,7 +122,7 @@ int main(){
     char choice;
 
     do{
-    cout<<"\n\n\n  Select an operation\n\n1-> Insert at begining\n2->Insert at end\n3->insert at required location\n4->Delete from begining\n5->Delete from end\n6->Delete from required location\n7->Display the list\n0->Exit\n\n->";
+    cout<<"\n\n\n  Select an operation\n\n1-> Insert at begining\n2-> Insert at end\n3-> insert at required location\n4-> Delete from begining\n5-> Delete from end\n6-> Delete from required location\n7-> Display the list\n0-> Exit\n\n-> ";
     cin>>choice;
 
     switch (choice)
