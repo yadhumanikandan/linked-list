@@ -27,10 +27,7 @@ void insrtBeg(){
 
     head=ptr;
     cout<<"\nInserted "<<val<<" at the BEGINNING.";
-
     count++;
-
-    cout<<"\n\nTOTEL ELEMENTS: "<<count<<endl;
 
 }
 
@@ -60,10 +57,7 @@ void insrtEnd(){
         
     }
     cout<<"\n\nInserted "<<val<<" at the END.";
-
     count++;
-
-    cout<<"\n\nTOTEL ELEMENTS: "<<count<<endl;
 
 }
 
@@ -91,12 +85,24 @@ void insrtReq(){
 
         cout<<"\n\nInserted "<<val<<" at location: "<<pos;
         count++;
-        cout<<"\n\nTOTEL ELEMENTS: "<<count<<endl;
     }
     
 }
 
-void delBeg(){}
+void delBeg(){
+
+    if(count==0){
+        cout<<"**THE LIST IS EMPTY**";
+    }else{
+        temp = head;
+
+        head =  head->next;
+
+        cout<<"\n\nREMOVED "<<temp->data<<" FROM 1st POSITION";
+        count--;
+    }
+
+}
 
 void delEnd(){}
 
@@ -122,7 +128,7 @@ int main(){
     char choice;
 
     do{
-    cout<<"\n\n\n  Select an operation\n\n1-> Insert at begining\n2-> Insert at end\n3-> insert at required location\n4-> Delete from begining\n5-> Delete from end\n6-> Delete from required location\n7-> Display the list\n0-> Exit\n\n-> ";
+    cout<<"\n\n\n  *SELECT AN OPERATION*\n  (current length- "<<count<<")\n\n1-> Insert at begining\n2-> Insert at end\n3-> insert at required location\n4-> Delete from begining\n5-> Delete from end\n6-> Delete from required location\n7-> Display the list\n0-> Exit\n\n-> ";
     cin>>choice;
 
     switch (choice)
