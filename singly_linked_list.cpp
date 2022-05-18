@@ -125,20 +125,40 @@ void delEnd(){
 
 }
 
-void delReq(){}
+void delReq(){
+
+    cout<<"\n\nEnter the position to delete: ";
+    cin>>pos;
+    temp = head;
+
+    for(int i=1; i<pos-1; i++){
+        temp = temp->next;
+    }
+
+    ptr = temp;
+    temp = temp->next;
+    ptr->next = temp->next;
+
+    cout<<"\n\nREMOVED "<<temp->data<<" FROM POSITION "<<pos;
+    count--;
+    delete temp;
+}
 
 void display(){
 
     temp=head;
-    cout<<"\n\n THE ELEMENTS ARE: "<<temp->data<<", ";
-    do
+    cout<<"\n\n THE ELEMENTS ARE: "<<temp->data;
+    if (count>=2)
     {
-        temp=temp->next;
-        cout<<temp->data<<", ";
 
-    } while (temp->next!=NULL);
-    
+        do
+        {
+            cout<<", ";
+            temp=temp->next;
+            cout<<temp->data;
 
+        } while (temp->next!=NULL);
+    }
 }
 
 
@@ -147,7 +167,7 @@ int main(){
     char choice;
 
     do{
-    cout<<"\n\n\n  *SELECT AN OPERATION*\n  (current length- "<<count<<")\n\n1-> Insert at begining\n2-> Insert at end\n3-> insert at required location\n4-> Delete from begining\n5-> Delete from end\n6-> Delete from required location\n7-> Display the list\n0-> Exit\n\n-> ";
+    cout<<"\n\n\n  *SELECT AN OPERATION*\n  (current length> "<<count<<")\n\n1-> Insert at begining\n2-> Insert at end\n3-> insert at required location\n4-> Delete from begining\n5-> Delete from end\n6-> Delete from required location\n7-> Display the list\n0-> Exit\n\n-> ";
     cin>>choice;
 
     switch (choice)
