@@ -92,7 +92,7 @@ void insrtReq(){
 void delBeg(){
 
     if(count==0){
-        cout<<"**THE LIST IS EMPTY**";
+        cout<<"\n\n**THE LIST IS EMPTY**";
     }else{
         temp = head;
 
@@ -100,11 +100,30 @@ void delBeg(){
 
         cout<<"\n\nREMOVED "<<temp->data<<" FROM 1st POSITION";
         count--;
+        delete temp;
     }
 
 }
 
-void delEnd(){}
+void delEnd(){
+
+    if(count==0){
+        cout<<"\n\n**THE LIST IS EMPTY**";
+    }else{
+        temp = head;
+        for(int i=1; i<count-1; i++){
+            temp = temp->next;
+        }
+        
+        ptr = temp;
+        temp = temp->next;
+        ptr->next = NULL;
+        cout<<"\n\nREMOVED "<<temp->data<<" FROM THE END";
+        count--;
+        delete temp;
+    }
+
+}
 
 void delReq(){}
 
